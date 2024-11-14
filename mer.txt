@@ -1,0 +1,12 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.datasets import load_iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+df = pd.DataFrame(X, columns=iris.feature_names)
+df['species'] = iris.target_names[y]
+sns.pairplot(df, hue="species", markers=["o", "s", "D"])
+plt.suptitle("Pairplot of Iris Dataset Features", y=1.02)
+plt.show()
